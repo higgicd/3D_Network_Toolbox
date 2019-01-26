@@ -13,7 +13,7 @@ With an input 2D network and a DEM/DTM, this tool performs several steps:
 3) Calculate the average slope of these segments
 4) Calculate the estimated pedestrian velocity given the slope of the terrain
 
-Options are given to control the granularity of results and specify any edges you do not want to be split or not have slope-aware travel times. See the detailed explanation below. Tool applied in [Higgins (2019)](https://doi.org/10.1016/j.landurbplan.2018.12.011)
+Options are given to control the granularity of results and specify any edges you do not want to be split or not have slope-aware travel times. See the detailed explanation below. Tool applied in [Higgins (2019)](https://doi.org/10.1016/j.landurbplan.2018.12.011).
 
 ## About
 Version 1.0  
