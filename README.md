@@ -1,11 +1,20 @@
 # 3D Network Toolbox
 
-Using an input pedestrian network and a Digital Elevation/Terrain Model (DEM/DTM), this Python Toolbox for ArcGIS Pro/10.4 or greater implements Tobler’s Hiking Function to enable the calculation of slope-aware travel times for walking travel on a 3D network.
+Using an input pedestrian network and a Digital Elevation/Terrain Model (DEM/DTM), this Python Toolbox for ArcGIS Pro/10.4 or greater implements Tobler’s Hiking Function to enable the calculation of slope-aware travel times for walking travel on a 3D network. Follow [these steps](https://pro.arcgis.com/en/pro-app/help/analysis/geoprocessing/basics/use-a-custom-geoprocessing-tool.htm) to add the ```.pyt``` toolbox to your project.
 
 <img width="500" alt="3d_network" src="https://github.com/higgicd/3D_Network_Toolbox/blob/master/assets/img/3D_NetworkToolbox.jpg">
 
-## Overview
+## Updates
+- July 2020
+  - pushed an update to the toolbox to fix issues that were preventing it from working correctly
+  - added some help xml
 
+- January 2018
+  - Tool requires the 3D Analyst and Spatial Analyst extensions  
+  - Network analysis requires the Network Analyst extension  
+  - The tool presently only works with **metric** units and is coded to expect values in **meters**
+
+## Overview
 With an input 2D network and a DEM/DTM, this tool performs several steps:
 
 1) Interpolate the 3D shape of the network given the DTM
@@ -13,33 +22,7 @@ With an input 2D network and a DEM/DTM, this tool performs several steps:
 3) Calculate the average slope of these segments
 4) Calculate the estimated pedestrian velocity given the slope of the terrain
 
-Options are given to control the granularity of results and specify any edges you do not want to be split or not have slope-aware travel times. See the detailed explanation below. Tool applied in [Higgins (2019)](https://doi.org/10.1016/j.landurbplan.2018.12.011).
-
-## About
-Version 1.0  
-Tool requires the 3D Analyst and Spatial Analyst extensions  
-Network analysis requires the Network Analyst extension  
-The tool presently only works with **metric** units and is coded to expect values in **meters**
-
-### Authors
-**Christopher D. Higgins**  
-Department of Land Surveying and Geo-informatics  
-Department of Building and Real Estate  
-The Hong Kong Polytechnic University
-
-**Jimmy Chan**  
-Department of Land Surveying and Geo-informatics  
-The Hong Kong Polytechnic University
-
-If used for research purposes, please cite as:
-
-```
-@techreport{higgins2018,
-  Title    = {3D Network Toolbox},
-  Author   = {Higgins, Christopher D. and Chan, Jimmy},
-  Year     = {2018}
-}
-```
+Options are given to control the granularity of results and specify any edges you do not want to be split or not have slope-aware travel times. See the detailed explanation below. Tool applied in [Higgins (2019)](https://doi.org/10.1016/j.landurbplan.2018.12.011). If you use this for research purposes, please cite that paper.
 
 ## Detailed Workflow
 Given a 2D network and a Digital Elevation/Terrain Model (DTM), this toolbox interpolates the 3D shape of the network on the DTM. The tool then splits the network into smaller segments and determines the average slope of these segments based on their start and end point XYZ-coordinates. 3D lengths for each line are also interpolated. Next, the tool estimates the travel time in minutes to traverse the segment given the average slope using Tobler’s (1993) Hiking Function:
